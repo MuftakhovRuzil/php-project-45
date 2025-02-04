@@ -1,5 +1,8 @@
 {
     "name": "hexlet/code",
+    "bin": ["bin/brain-games"],
+    "license": "MIT",
+    "description": "hexlet php-package",
     "autoload": {
         "psr-4": {
             "Hexlet\\Code\\": "src/"
@@ -7,4 +10,5 @@
     },
     "minimum-stability": "stable",
     "require": {}
+
 }
