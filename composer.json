@@ -1,6 +1,9 @@
 {
     "name": "hexlet/code",
-    "bin": ["bin/brain-games"],
+    "bin": [
+        "bin/brain-games",
+        "bin/brain-even"
+    ],
     "license": "MIT",
     "description": "hexlet php-package",
     "autoload": {
@@ -8,7 +11,8 @@
             "Hexlet\\Code\\": "src/"
         },
 	"files": [
-	"src/Cli.php"]
+	"src/Cli.php",
+    "src/game-even.php"]
     },
     "minimum-stability": "stable",
     "require": {
