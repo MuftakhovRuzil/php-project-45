@@ -12,7 +12,9 @@
         },
 	"files": [
 	"src/Cli.php",
-    "src/game-even.php"]
+    "src/Games/game-even.php",
+    "src/Games/brain-calc.php",
+    "src/Engine.php"]
     },
     "minimum-stability": "stable",
     "require": {
