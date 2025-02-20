@@ -4,10 +4,8 @@ namespace PhpProject\Engine;
 use function cli\line;
 use function cli\prompt;
 
-const MinNumber = 0;
-const MaxNumber = 1000;
-const RoundsQuantity = 3;
 
+/* Простая функция приветсвия пользователя*/
 function greeting()
 {
     line('Welcome to the Brain Game!');
@@ -15,7 +13,8 @@ function greeting()
     line("Hello, %s!", $name);
     return $name;
 }
-
+/* Простая функция которая задает вопрос пользователю и записывает ответ
+Сам вопрос поступает от функций папки src/Games*/
 function askQuestion(string $question): string
 {
     line('Question: %s', $question);

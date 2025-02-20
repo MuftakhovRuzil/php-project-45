@@ -16,6 +16,7 @@
     "src/Games/brain-calc.php",
     "src/Games/brain-gcd.php",
     "src/Games/brain-progression.php",
+    "src/Games/brain-prime.php",
     "src/Engine.php"]
     },
     "minimum-stability": "stable",

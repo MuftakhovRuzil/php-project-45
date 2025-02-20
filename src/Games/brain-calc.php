@@ -7,10 +7,10 @@ use function cli\prompt;
 use function PhpProject\Engine\greeting;
 use function PhpProject\Engine\playRound;
 
-const MinNumber = 0;
-const MaxNumber = 99;
-const RoundsQuantity = 3;
-const Rules = 'What is the result of the expression?';
+const MinNumber = 0; // Минимальное число
+const MaxNumber = 99; // Максимальное число
+const RoundsQuantity = 3; // Количество раундов
+const Rules = 'What is the result of the expression?'; //Правила игры
 
 function calcRight(int $FirstNumber, string $operator, int $SecondNumber)
 {
