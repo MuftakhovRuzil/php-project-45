@@ -8,7 +8,7 @@ use function PhpProject\Engine\greeting;
 use function PhpProject\Engine\playRound;
 
 const MinNumber = 0;
-const MaxNumber = 1000;
+const MaxNumber = 100;
 const RoundsQuantity = 3;
 const Rules = 'Answer "yes" if the number is even, otherwise answer "no".';
 
