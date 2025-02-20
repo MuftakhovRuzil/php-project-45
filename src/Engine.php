@@ -16,21 +16,20 @@ function greeting()
     return $name;
 }
 
-function askQuestion(string $question): string//функция запроса ответа на вопрос
+function askQuestion(string $question): string
 {
     line('Question: %s', $question);
     $answer = prompt('Your answer');
     return $answer;
 }
-// ниже главная функция движка
+
 function playRound(array $OneRound, string $Rules): void
 {
     $name = greeting();
-    line($Rules); // Выводим правила один раз перед началом игры
+    line($Rules); 
     for ($i = 1; $i <= RoundsQuantity; $i += 1) {
         list($question, $correctAnswer) = $OneRound[$i-1];
         $answer = askQuestion($question);
-        // Сравниваем ответ пользователя с правильным ответом
         if ($answer !== $correctAnswer) {
             line(
                 "'%s' is wrong answer ;(. Correct answer was '%s'. \nLet's try again, %s!",
@@ -43,5 +42,5 @@ function playRound(array $OneRound, string $Rules): void
             line('Correct!');
         }
     }
-    line('Congratulations, %s!', $name); // вывод, если выиграл все раунды
+    line('Congratulations, %s!', $name); 
 }
