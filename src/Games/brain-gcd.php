@@ -1,49 +1,57 @@
 <?php
 
+//ИГРА ПО НАХОЖДЕНИЮ НОД
+
 namespace PhpProject\GameGCD;
 
 use function cli\line;
 use function cli\prompt;
 use function PhpProject\Engine\greeting;
-use function PhpProject\Engine\playRound;
+use function PhpProject\Engine\playGame;
 
-const MinNumber = 0; // Минимальное число
-const MaxNumber = 99; // Максимальное число
-const RoundsQuantity = 3; // Количество раундов
-const Rules = 'Find the greatest common divisor of given numbers.'; //Правила игры
+const MINNUMBER = 0; // Минимальное число
+const MAXNUMBER = 99; // Максимальное число
+const ROUNDSQUANTITY = 3; // Количество раундов
+const RULES = 'Find the greatest common divisor of given numbers.'; //Правила игры
 
-/* Функция которая определяет НОД двух чисел по алгоритму Евклида, сравнение двух чисел, 
-от большого отнимается меньшее пока они не станут равны */
-function rightGCD(int $FirstNumber, int $SecondNumber) 
+/**
+* Функция которая определяет НОД двух чисел по алгоритму Евклида, сравнение двух чисел,
+* от большого отнимается меньшее пока они не станут равны
+*/
+
+function rightGCD(int $firstNumber, int $secondNumber)
 {
-        while ($FirstNumber != $SecondNumber) { 
-            if ($FirstNumber > $SecondNumber) {
-                $FirstNumber -= $SecondNumber;
-            } else {
-                $SecondNumber -= $FirstNumber;
-            }
+    while ($firstNumber != $secondNumber) {
+        if ($firstNumber > $secondNumber) {
+                $firstNumber -= $secondNumber;
+        } else {
+                $secondNumber -= $firstNumber;
         }
-        return $FirstNumber;
+    }
+        return $firstNumber;
 }
-/* Функция которая формирует один вопрос в виде строки из двух случайных чисел
-далее по функции выше в массив передается ответ из функции rightGCD и
-объединяется с вопросом в массиве*/
+/**
+* Функция которая формирует один вопрос в виде строки из двух случайных чисел
+* далее по функции выше в массив передается ответ из функции rightGCD и
+* объединяется с вопросом в массиве
+*/
+
 function genQuestionAndAnswer(): array
 {
-    $FirstNumber = rand(MinNumber, MaxNumber);
-    $SecondNumber = rand(MinNumber, MaxNumber);
-    $Question = "{$FirstNumber} {$SecondNumber}";
-    $answer = rightGCD($FirstNumber,$SecondNumber);
+    $firstNumber = rand(MINNUMBER, MAXNUMBER);
+    $secondNumber = rand(MINNUMBER, MAXNUMBER);
+    $Question = "{$firstNumber} {$secondNumber}";
+    $answer = rightGCD($firstNumber, $secondNumber);
     return [$Question, (string) $answer];
 }
 
-/* Функция которая формирует массив из 3 вопросов и ответов, затем запускает основной движок игры*/
+// функция которая формирует массив из 3 вопрос+верный ответ, и запускает движок игры
+
 function FindGCD()
 {
-    $OneRound = [];
-    for ($i = 1; $i <= RoundsQuantity; $i += 1) 
-    {
-        $OneRound[] = genQuestionAndAnswer();
+    $oneRound = [];
+    for ($i = 1; $i <= ROUNDSQUANTITY; $i += 1) {
+        $oneRound[] = genQuestionAndAnswer();
     }
-    playRound($OneRound, Rules);
+    playGame($oneRound, RULES);
 }

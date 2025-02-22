@@ -1,48 +1,54 @@
 <?php
 
+//ИГРА КАЛЬКУЛЯТОР
+
 namespace PhpProject\GameCalc;
 
 use function cli\line;
 use function cli\prompt;
 use function PhpProject\Engine\greeting;
-use function PhpProject\Engine\playRound;
+use function PhpProject\Engine\playGame;
 
-const MinNumber = 0; // Минимальное число
-const MaxNumber = 99; // Максимальное число
-const RoundsQuantity = 3; // Количество раундов
-const Rules = 'What is the result of the expression?'; //Правила игры
+const MINNUMBER = 0; // Минимальное число
+const MAXNUMBER = 99; // Максимальное число
+const ROUNDSQUANTITY = 3; // Количество раундов
+const RULES = 'What is the result of the expression?'; //Правила игры
 
-function calcRight(int $FirstNumber, string $operator, int $SecondNumber)
+// Функция которая вычисляет правильный ответ случайно сгенерированного выражения
+
+function calcRight(int $firstNumber, string $operator, int $secondNumber)
 {
     if ($operator == '*') {
-        $result = $FirstNumber * $SecondNumber;
+        $result = $firstNumber * $secondNumber;
         return $result;
     } elseif ($operator == '+') {
-        $result = $FirstNumber + $SecondNumber;
+        $result = $firstNumber + $secondNumber;
         return $result;
     } else {
-        $result = $FirstNumber - $SecondNumber;
+        $result = $firstNumber - $secondNumber;
         return $result;
     }
 }
+
+// Функция которая формирует выражение которое нужно вычислить
 
 function genQuestionAndAnswer(): array
 {
-    $FirstNumber = rand(MinNumber, MaxNumber);
-    $SecondNumber = rand(MinNumber, MaxNumber);
+    $firstNumber = rand(MINNUMBER, MAXNUMBER);
+    $secondNumber = rand(MINNUMBER, MAXNUMBER);
     $operatorsPull = ['+', '-', '*'];
     $operator = $operatorsPull[array_rand($operatorsPull)];
-    $Question = "{$FirstNumber} {$operator} {$SecondNumber}";
-    $answer = calcRight($FirstNumber,$operator,$SecondNumber);
-    return [$Question, (string) $answer];
+    $question = "{$firstNumber} {$operator} {$secondNumber}";
+    $answer = calcRight($firstNumber, $operator, $secondNumber);
+    return [$question, (string) $answer];
 }
 
+// функция которая формирует массив из 3 вопрос+верный ответ, и запускает движок игры
 function CalculateThis()
 {
-    $OneRound = [];
-    for ($i = 1; $i <= RoundsQuantity; $i += 1) 
-    {
-        $OneRound[] = genQuestionAndAnswer();
+    $oneRound = [];
+    for ($i = 1; $i <= ROUNDSQUANTITY; $i += 1) {
+        $oneRound[] = genQuestionAndAnswer();
     }
-    playRound($OneRound, Rules);
+    playGame($oneRound, RULES);
 }

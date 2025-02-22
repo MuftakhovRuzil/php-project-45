@@ -1,11 +1,14 @@
 <?php
+
 namespace PhpProject\Engine;
 
 use function cli\line;
 use function cli\prompt;
 
+const ROUNDSQUANTITY = 3;
 
 /* Простая функция приветсвия пользователя*/
+
 function greeting()
 {
     line('Welcome to the Brain Game!');
@@ -13,8 +16,10 @@ function greeting()
     line("Hello, %s!", $name);
     return $name;
 }
-/* Простая функция которая задает вопрос пользователю и записывает ответ
-Сам вопрос поступает от функций папки src/Games*/
+/** Функция которая задает вопрос пользователю и записывает ответ
+* Сам вопрос поступает от функций папки src/Games
+*/
+
 function askQuestion(string $question): string
 {
     line('Question: %s', $question);
@@ -22,13 +27,16 @@ function askQuestion(string $question): string
     return $answer;
 }
 
-function playRound(array $OneRound, string $Rules): void
+/** Основная функция проекта
+*/
+
+function playGame(array $oneRound, string $rules): void
 {
-    $name = greeting();
-    line($Rules); 
-    for ($i = 1; $i <= RoundsQuantity; $i += 1) {
-        list($question, $correctAnswer) = $OneRound[$i-1];
-        $answer = askQuestion($question);
+    $name = greeting(); // Приветствие
+    line($rules);  // Показывает правила в зависимости от запущенной игры
+    for ($i = 1; $i <= ROUNDSQUANTITY; $i += 1) { // количество раундов
+        list($question, $correctAnswer) = $oneRound[$i - 1]; // формирует переменные из ячейки массива
+        $answer = askQuestion($question); // ответ из функции которая задает вопрос пользователю
         if ($answer !== $correctAnswer) {
             line(
                 "'%s' is wrong answer ;(. Correct answer was '%s'. \nLet's try again, %s!",
@@ -41,5 +49,5 @@ function playRound(array $OneRound, string $Rules): void
             line('Correct!');
         }
     }
-    line('Congratulations, %s!', $name); 
+    line('Congratulations, %s!', $name);
 }

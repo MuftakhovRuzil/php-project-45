@@ -1,34 +1,39 @@
 <?php
 
+//ИГРА ПО ОПРЕДЕЛНИЮ ЧЕТНОСТИ ЧИСЛА
+
 namespace PhpProject\GameEven;
 
 use function cli\line;
 use function cli\prompt;
 use function PhpProject\Engine\greeting;
-use function PhpProject\Engine\playRound;
+use function PhpProject\Engine\playGame;
 
-const MinNumber = 0;
-const MaxNumber = 100;
-const RoundsQuantity = 3;
-const Rules = 'Answer "yes" if the number is even, otherwise answer "no".';
+const MINNUMBER = 0; // Минимальное число
+const MAXNUMBER = 99; // Максимальное число
+const ROUNDSQUANTITY = 3; // Количество раундов
+const RULES = 'Answer "yes" if the number is even, otherwise answer "no".'; //Правила игры
 
-function isEven(int $Number)
+/* Функция определения четности числа*/
+function isEven(int $number)
 {
-    return $Number % 2 === 0;
+    return $number % 2 === 0;
 }
 
+/* Функция генерации случайного числа и правильного ответа*/
 function genQuestionAndAnswer(): array
 {
-    $Number = rand(MinNumber, MaxNumber);
-    return [(string) $Number, isEven($Number) ? 'yes' : 'no'];
+    $number = rand(MINNUMBER, MAXNUMBER);
+    return [(string) $number, isEven($number) ? 'yes' : 'no'];
 }
 
-function GameEven()
+// функция которая формирует массив из 3 вопрос+верный ответ, и запускает движок игры
+
+function gameEven()
 {
     $OneRound = [];
-    for ($i = 1; $i <= RoundsQuantity; $i += 1) 
-    {
-        $OneRound[] = genQuestionAndAnswer();
+    for ($i = 1; $i <= ROUNDSQUANTITY; $i += 1) {
+        $oneRound[] = genQuestionAndAnswer();
     }
-    playRound($OneRound, Rules);
+    playGame($oneRound, RULES);
 }

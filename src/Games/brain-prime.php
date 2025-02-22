@@ -1,35 +1,38 @@
 <?php
 
+//ИГРА ПО ОПРЕДЕЛНИЮ ПРОСТОГО ЧИСЛА
+
 namespace PhpProject\GamePrime;
 
 use function cli\line;
 use function cli\prompt;
 use function PhpProject\Engine\greeting;
-use function PhpProject\Engine\playRound;
+use function PhpProject\Engine\playGame;
 
-const MinNumber = 0;
-const MaxNumber = 100;
-const RoundsQuantity = 3;
-const Rules = '"yes" if given number is prime. Otherwise answer "no"';
+const MINNUMBER = 0; // Минимальное число
+const MAXNUMBER = 99; // Максимальное число
+const ROUNDSQUANTITY = 3; // Количество раундов
+const RULES = '"yes" if given number is prime. Otherwise answer "no"';  //Правила игры
 
-function isPrime(int $Number)
+function isPrime(int $number)
 {
     $array = array(2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97);
-    return in_array($Number,$array);
+    return in_array($number, $array);
 }
 
 function genQuestionAndAnswer(): array
 {
-    $Number = rand(MinNumber, MaxNumber);
-    return [(string) $Number, isPrime($Number) ? 'yes' : 'no'];
+    $number = rand(MINNUMBER, MAXNUMBER);
+    return [(string) $number, isPrime($number) ? 'yes' : 'no'];
 }
 
-function GamePrime()
+// функция которая формирует массив из 3 вопрос+верный ответ, и запускает движок игры
+
+function gamePrime()
 {
-    $OneRound = [];
-    for ($i = 1; $i <= RoundsQuantity; $i += 1) 
-    {
-        $OneRound[] = genQuestionAndAnswer();
+    $oneRound = [];
+    for ($i = 1; $i <= ROUNDSQUANTITY; $i += 1) {
+        $oneRound[] = genQuestionAndAnswer();
     }
-    playRound($OneRound, Rules);
+    playGame($oneRound, RULES);
 }
