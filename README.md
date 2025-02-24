@@ -1,14 +1,47 @@
 ### Hexlet tests and linter status:
 [![Actions Status](https://github.com/MuftakhovRuzil/php-project-45/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/MuftakhovRuzil/php-project-45/actions)
+<a href="https://codeclimate.com/github/MuftakhovRuzil/php-project-45/maintainability"><img src="https://api.codeclimate.com/v1/badges/b2d9b7b8bb2c16a1df8d/maintainability" /></a>
 
-Hello my friend! Check out my ascinema for the Brain Games at the link:
-Game-Even:
-<a href="https://asciinema.org/a/wY3uXFL2sxqAX4PWZgDil37IE" target="_blank"><img src="https://asciinema.org/a/wY3uXFL2sxqAX4PWZgDil37IE.svg" /></a>
-Game-Calc:
-<a href="https://asciinema.org/a/vl1jwPIuk7v5YhpWEbFG5FgL4" target="_blank"><img src="https://asciinema.org/a/vl1jwPIuk7v5YhpWEbFG5FgL4.svg" /></a>
-Game-GCD:
-<a href="https://asciinema.org/a/4hS531noqE5Em5tmH7d4KoGrm" target="_blank"><img src="https://asciinema.org/a/4hS531noqE5Em5tmH7d4KoGrm.svg" /></a>
-Game-Progression:
-<a href="https://asciinema.org/a/IZtCwgxgK1z1bkkOPpLoMs49c" target="_blank"><img src="https://asciinema.org/a/IZtCwgxgK1z1bkkOPpLoMs49c.svg" /></a>
-Game-Prime:
-<a href="https://asciinema.org/a/Et0ZtSfyUeMHm0ZZA2OmcwG7i" target="_blank"><img src="https://asciinema.org/a/Et0ZtSfyUeMHm0ZZA2OmcwG7i.svg" /></a>
+
+## Hello my friend! 
+
+## Description
+Brain Games is a set of five mini-games to train your brain. Each game asks you to solve different mathematical or logical problems. Complete all rounds to win the game. 
+The games included are:
+- Brain Even
+- Brain Calc
+- Brain GCD
+- Brain Progression
+- Brain Prime
+
+## Installation
+To install the package, run the following command:
+```bash
+git clone https://github.com/MuftakhovRuzil/php-project-45
+cd php-project-45
+make install
+```
+## Starting the game
+to start the game, type make and the name of the game in the console, for example:
+```bash
+make brain-even
+make brain-calc
+make brain-gcd
+make brain-progression
+make brain-prime
+```
+
+make brain-even
+## minimum requirements
+- Linux, Macos, WSL
+- PHP >=8.2
+- Xdebug
+- Make
+- Git
+
+## Check out my ascinema for the Brain Games at the link:
+- <a href="https://asciinema.org/a/wY3uXFL2sxqAX4PWZgDil37IE"></a>brain even<br>
+- <a href="https://asciinema.org/a/vl1jwPIuk7v5YhpWEbFG5FgL4"></a>brain calc<br>
+- <a href="https://asciinema.org/a/4hS531noqE5Em5tmH7d4KoGrm"></a>brain GCD<br>
+- <a href="https://asciinema.org/a/IZtCwgxgK1z1bkkOPpLoMs49c"></a>brain progression<br>
+- <a href="https://asciinema.org/a/Et0ZtSfyUeMHm0ZZA2OmcwG7i"></a>brain prime<br>
