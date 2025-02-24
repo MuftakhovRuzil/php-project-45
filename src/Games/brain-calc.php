@@ -44,7 +44,7 @@ function genQuestionAndAnswer(): array
 }
 
 // функция которая формирует массив из 3 вопрос+верный ответ, и запускает движок игры
-function сalculateThis()
+function calculateThis()
 {
     $oneRound = [];
     for ($i = 1; $i <= ROUNDSQUANTITY; $i += 1) {
