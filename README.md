@@ -31,7 +31,6 @@ make brain-progression
 make brain-prime
 ```
 
-make brain-even
 ## minimum requirements
 - Linux, Macos, WSL
 - PHP >=8.2
@@ -40,8 +39,8 @@ make brain-even
 - Git
 
 ## Check out my ascinema for the Brain Games at the link:
-- <a href="https://asciinema.org/a/wY3uXFL2sxqAX4PWZgDil37IE"></a>brain even<br>
-- <a href="https://asciinema.org/a/vl1jwPIuk7v5YhpWEbFG5FgL4"></a>brain calc<br>
-- <a href="https://asciinema.org/a/4hS531noqE5Em5tmH7d4KoGrm"></a>brain GCD<br>
-- <a href="https://asciinema.org/a/IZtCwgxgK1z1bkkOPpLoMs49c"></a>brain progression<br>
-- <a href="https://asciinema.org/a/Et0ZtSfyUeMHm0ZZA2OmcwG7i"></a>brain prime<br>
+- <a href="https://asciinema.org/a/wY3uXFL2sxqAX4PWZgDil37IE">brain even</a><br>
+- <a href="https://asciinema.org/a/vl1jwPIuk7v5YhpWEbFG5FgL4">brain calc</a><br>
+- <a href="https://asciinema.org/a/4hS531noqE5Em5tmH7d4KoGrm">brain GCD</a><br>
+- <a href="https://asciinema.org/a/IZtCwgxgK1z1bkkOPpLoMs49c">brain progression</a><br>
+- <a href="https://asciinema.org/a/Et0ZtSfyUeMHm0ZZA2OmcwG7i">brain prime</a><br>
