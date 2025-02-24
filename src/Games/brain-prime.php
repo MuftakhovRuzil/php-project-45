@@ -12,7 +12,7 @@ use function PhpProject\Engine\playGame;
 const MINNUMBER = 0; // Минимальное число
 const MAXNUMBER = 99; // Максимальное число
 const ROUNDSQUANTITY = 3; // Количество раундов
-const RULES = 'Answer "yes" if given number is prime. Otherwise answer "no".';  //Правила игры
+const RULES = '"yes" if given number is prime. Otherwise answer "no".';  //Правила игры
 
 function isPrime(int $number)
 {
