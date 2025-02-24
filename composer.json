@@ -7,7 +7,7 @@
         "bin/brain-prime",
         "bin/brain-gcd",
         "bin/brain-progression"
-    ],
+],
     "license": "MIT",
     "description": "hexlet php-package",
     "autoload": {
