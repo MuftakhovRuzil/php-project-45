@@ -9,7 +9,7 @@ use function cli\prompt;
 use function PhpProject\Engine\greeting;
 use function PhpProject\Engine\playGame;
 
-const MINNUMBER = 0; // Минимальное число
+const MINNUMBER = 1; // Минимальное число
 const MAXNUMBER = 99; // Максимальное число
 const ROUNDSQUANTITY = 3; // Количество раундов
 const RULES = 'Find the greatest common divisor of given numbers.'; //Правила игры
