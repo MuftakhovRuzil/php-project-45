@@ -31,7 +31,7 @@ function genQuestionAndAnswer(): array
 
 function gameEven()
 {
-    $OneRound = [];
+    $oneRound = [];
     for ($i = 1; $i <= ROUNDSQUANTITY; $i += 1) {
         $oneRound[] = genQuestionAndAnswer();
     }

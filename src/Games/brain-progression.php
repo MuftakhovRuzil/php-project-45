@@ -30,6 +30,7 @@ function getProgressionAnswer(array $Progression, int $pos)
 */
 function genQuestionAndAnswer(): array
 {
+    $progression[] = '';
     $progressionQuantity = rand(MINQUANTITY, MAXQUANTITY); // определили количество цифр из которых посторена прогрессия
     $progressionStep = rand(MINPROGRESSIONSTEP, MAXPROGRESSIONSTEP); // определили шаг прогрессии
     $progression[0] = rand(MINNUMBER, MAXNUMBER); //начальная цифра с которой набирается прогрессия
