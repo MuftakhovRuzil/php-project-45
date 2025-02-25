@@ -40,7 +40,7 @@ function genQuestionAndAnswer(): array
 {
     $firstNumber = rand(MINNUMBER, MAXNUMBER);
     $secondNumber = rand(MINNUMBER, MAXNUMBER);
-    $Question = "{$firstNumber}make  {$secondNumber}";
+    $Question = "{$firstNumber} {$secondNumber}";
     $answer = rightGCD($firstNumber, $secondNumber);
     return [$Question, (string) $answer];
 }
