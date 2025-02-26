@@ -2,16 +2,15 @@
 
 //ИГРА ПО ОПРЕДЕЛНИЮ ЧЕТНОСТИ ЧИСЛА
 
-namespace PhpProject\GameEven;
+namespace Php\Project\Games\Even;
 
-use function cli\line;
 use function cli\prompt;
-use function PhpProject\Engine\greeting;
-use function PhpProject\Engine\playGame;
+use function Php\Project\Engine\greeting;
+use function Php\Project\Engine\playGame;
 
 const MINNUMBER = 0; // Минимальное число
 const MAXNUMBER = 99; // Максимальное число
-const ROUNDSQUANTITY = 3; // Количество раундов
+use const Php\Project\Engine\ROUNDS_COUNT; // Количество раундов
 const RULES = 'Answer "yes" if the number is even, otherwise answer "no".'; //Правила игры
 
 /* Функция определения четности числа*/
@@ -21,7 +20,7 @@ function isEven(int $number)
 }
 
 /* Функция генерации случайного числа и правильного ответа*/
-function genQuestionAndAnswer(): array
+function genQNA(): array
 {
     $number = rand(MINNUMBER, MAXNUMBER);
     return [(string) $number, isEven($number) ? 'yes' : 'no'];
@@ -31,9 +30,9 @@ function genQuestionAndAnswer(): array
 
 function gameEven()
 {
-    $oneRound = [];
-    for ($i = 1; $i <= ROUNDSQUANTITY; $i += 1) {
-        $oneRound[] = genQuestionAndAnswer();
+    $gameDatabase = [];
+    for ($i = 1; $i <= ROUNDS_COUNT; $i += 1) {
+        $gameDatabase[] = genQNA();
     }
-    playGame($oneRound, RULES);
+    playGame($gameDatabase, RULES);
 }

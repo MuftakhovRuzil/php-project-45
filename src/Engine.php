@@ -1,11 +1,11 @@
 <?php
 
-namespace PhpProject\Engine;
+namespace Php\Project\Engine;
 
 use function cli\line;
 use function cli\prompt;
 
-const ROUNDSQUANTITY = 3;
+const ROUNDS_COUNT = 3;
 
 /* Простая функция приветсвия пользователя*/
 
@@ -32,9 +32,9 @@ function askQuestion(string $question): string
 
 function playGame(array $oneRound, string $rules): void
 {
-    $name = greeting(); // Приветствие
+    $name = greeting(); 
     line($rules);  // Показывает правила в зависимости от запущенной игры
-    for ($i = 1; $i <= ROUNDSQUANTITY; $i += 1) { // количество раундов
+    for ($i = 1; $i <= ROUNDS_COUNT; $i += 1) { // количество раундов
         list($question, $correctAnswer) = $oneRound[$i - 1]; // формирует переменные из ячейки массива
         $answer = askQuestion($question); // ответ из функции которая задает вопрос пользователю
         if ($answer !== $correctAnswer) {
@@ -44,7 +44,7 @@ function playGame(array $oneRound, string $rules): void
                 $correctAnswer,
                 $name
             );
-            return;
+            return; // если неверный ответ то игра завершается полностью
         } else {
             line('Correct!');
         }

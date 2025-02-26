@@ -2,25 +2,32 @@
 
 //ИГРА ПО ОПРЕДЕЛНИЮ ПРОСТОГО ЧИСЛА
 
-namespace PhpProject\GamePrime;
+namespace Php\Project\Games\Prime;
 
 use function cli\line;
 use function cli\prompt;
-use function PhpProject\Engine\greeting;
-use function PhpProject\Engine\playGame;
+use function Php\Project\Engine\greeting;
+use function Php\Project\Engine\playGame;
 
 const MINNUMBER = 0; // Минимальное число
 const MAXNUMBER = 99; // Максимальное число
-const ROUNDSQUANTITY = 3; // Количество раундов
+use const Php\Project\Engine\ROUNDS_COUNT; // Количество раундов
 const RULES = 'Answer "yes" if given number is prime. Otherwise answer "no".';  //Правила игры
 
 function isPrime(int $number)
 {
-    $array = array(2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97);
-    return in_array($number, $array, true);
+    if ($number <= 1) {
+        return false;
+    }
+    for ($i = 2; $i < $number; $i++) {
+        if ($number % $i == 0) {
+            return false;
+        }
+    }
+    return true;
 }
 
-function genQuestionAndAnswer(): array
+function genQNA(): array
 {
     $number = rand(MINNUMBER, MAXNUMBER);
     return [(string) $number, isPrime($number) ? 'yes' : 'no'];
@@ -30,9 +37,9 @@ function genQuestionAndAnswer(): array
 
 function gamePrime()
 {
-    $oneRound = [];
-    for ($i = 1; $i <= ROUNDSQUANTITY; $i += 1) {
-        $oneRound[] = genQuestionAndAnswer();
+    $gameDatabase = [];
+    for ($i = 1; $i <= ROUNDS_COUNT; $i += 1) {
+        $gameDatabase[] = genQNA();
     }
-    playGame($oneRound, RULES);
+    playGame($gameDatabase, RULES);
 }

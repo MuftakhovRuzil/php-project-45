@@ -2,16 +2,16 @@
 
 //ИГРА ПО НАХОЖДЕНИЮ НОД
 
-namespace PhpProject\GameGCD;
+namespace Php\Project\Games\GCD;
 
 use function cli\line;
 use function cli\prompt;
-use function PhpProject\Engine\greeting;
-use function PhpProject\Engine\playGame;
+use function Php\Project\Engine\greeting;
+use function Php\Project\Engine\playGame;
 
 const MINNUMBER = 1; // Минимальное число
 const MAXNUMBER = 99; // Максимальное число
-const ROUNDSQUANTITY = 3; // Количество раундов
+use const Php\Project\Engine\ROUNDS_COUNT; // Количество раундов
 const RULES = 'Find the greatest common divisor of given numbers.'; //Правила игры
 
 /**
@@ -23,9 +23,9 @@ function rightGCD(int $firstNumber, int $secondNumber)
 {
     while ($firstNumber != $secondNumber) {
         if ($firstNumber > $secondNumber) {
-                $firstNumber -= $secondNumber;
+            $firstNumber -= $secondNumber;
         } else {
-                $secondNumber -= $firstNumber;
+            $secondNumber -= $firstNumber;
         }
     }
         return $firstNumber;
@@ -36,7 +36,7 @@ function rightGCD(int $firstNumber, int $secondNumber)
 * объединяется с вопросом в массиве
 */
 
-function genQuestionAndAnswer(): array
+function genQNA(): array
 {
     $firstNumber = rand(MINNUMBER, MAXNUMBER);
     $secondNumber = rand(MINNUMBER, MAXNUMBER);
@@ -49,9 +49,9 @@ function genQuestionAndAnswer(): array
 
 function FindGCD()
 {
-    $oneRound = [];
-    for ($i = 1; $i <= ROUNDSQUANTITY; $i += 1) {
-        $oneRound[] = genQuestionAndAnswer();
+    $gameDatabase = [];
+    for ($i = 1; $i <= ROUNDS_COUNT; $i += 1) {
+        $gameDatabase[] = genQNA();
     }
-    playGame($oneRound, RULES);
+    playGame($gameDatabase, RULES);
 }

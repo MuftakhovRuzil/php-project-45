@@ -11,17 +11,15 @@
     "license": "MIT",
     "description": "hexlet php-package",
     "autoload": {
-        "psr-4": {
-            "Hexlet\\Code\\": "src/"
-        },
 	"files": [
 	"src/Cli.php",
-    "src/Games/game-even.php",
+    "src/Games/brain-even.php",
     "src/Games/brain-calc.php",
     "src/Games/brain-gcd.php",
     "src/Games/brain-progression.php",
     "src/Games/brain-prime.php",
-    "src/Engine.php"]
+    "src/Engine.php"
+    ]
     },
     "minimum-stability": "stable",
     "require": {
