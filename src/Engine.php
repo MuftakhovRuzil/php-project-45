@@ -32,7 +32,7 @@ function askQuestion(string $question): string
 
 function playGame(array $oneRound, string $rules): void
 {
-    $name = greeting(); 
+    $name = greeting();
     line($rules);  // Показывает правила в зависимости от запущенной игры
     for ($i = 1; $i <= ROUNDS_COUNT; $i += 1) { // количество раундов
         list($question, $correctAnswer) = $oneRound[$i - 1]; // формирует переменные из ячейки массива

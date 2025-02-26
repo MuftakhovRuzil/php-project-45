@@ -29,7 +29,6 @@ function calc(int $firstNumber, string $randomOperator, int $secondNumber)
             $result = $firstNumber - $secondNumber;
     }
     return $result;
-
 }
 
 // Функция которая формирует выражение которое нужно вычислить
