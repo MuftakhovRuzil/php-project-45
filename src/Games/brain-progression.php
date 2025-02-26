@@ -25,8 +25,9 @@ function getProgressionAnswer(array $progression, int $pos)
 }
 
 /* Функция генерации массива исходя из условий (Начальное число, Кол-во шагов, Величина шага) */
-function genProgression($firstPos, $progressionCount, $progressionStep): array
+function genProgression(int $firstPos, int $progressionCount, int $progressionStep): array
 {
+    $progression = [];
     $progression[0] = $firstPos;
     for ($i = 1; $i <= $progressionCount; $i += 1) {
         $progression[$i] = $progression[$i - 1] + $progressionStep;
